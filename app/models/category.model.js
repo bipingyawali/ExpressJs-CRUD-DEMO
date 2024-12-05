@@ -18,15 +18,6 @@ module.exports = (sequelize, Sequelize) => {
     {
       paranoid: true, // Enables soft delete
       timestamps: true, // Ensures createdAt and updatedAt fields are included
-      indexes: [
-        {
-          unique: true,
-          fields: ['title'],
-          where: {
-            deletedAt: null, // Unique constraint applies only to non-deleted rows
-          },
-        }
-      ],
     }
   );
   return Category;

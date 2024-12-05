@@ -17,7 +17,11 @@ module.exports = function (app) {
         controller.createCategory
     );
 
-    app.put('/api/categories/:id', controller.updateCategory);
+    app.put(
+        '/api/categories/:id',
+        [verifyCategory.validateCategoryForm],
+        controller.updateCategory
+    );
 
     app.delete('/api/categories/:id', controller.deleteCategory);
 };

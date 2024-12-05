@@ -34,6 +34,7 @@ exports.createCategory = (req, res) => {
 
 exports.updateCategory = (req, res) => {
   const id = req.params.id;
+  console.log(id)
   service
     .update(id, req.body)
     .then((category) => {

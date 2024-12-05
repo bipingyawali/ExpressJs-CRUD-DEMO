@@ -5,6 +5,8 @@ const express = require('express')
 const bodyParser = require("body-parser");
 
 var cors = require('cors')
+const { specs, swaggerUi } = require('./app/utils/swagger');
+
 
 const app = express();
 
@@ -14,8 +16,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 const db = require("./app/models");
-db.sequelize.sync({force: false}).then(() => {
-});
+// db.sequelize.sync({force: false}).then(() => {
+// });
+
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(specs));
 
 const PORT = process.env.PORT || 8080;
 

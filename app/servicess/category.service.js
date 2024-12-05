@@ -46,6 +46,7 @@ exports.findAll = ({ offset, limit, sortBy, orderBy, queryText }) => {
           Object.keys(body).map((key) => {
             category[key] = body[key]
           })
+          console.log(category)
           category
             .save()
             .then((category) => {
